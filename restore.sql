@@ -25,8 +25,6 @@ SET row_security = off;
 -- Name: dvdrental; Type: DATABASE; Schema: -; Owner: postgres
 --
 
-CREATE DATABASE dvdrental WITH TEMPLATE = template0 ENCODING = 'UTF8';
-
 
 ALTER DATABASE dvdrental OWNER TO postgres;
 
