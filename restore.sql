@@ -22,12 +22,12 @@ SET check_function_bodies = false;
 SET client_min_messages = warning;
 SET row_security = off;
 
-DROP DATABASE IF EXISTS dvdrental;
+DROP DATABASE IF EXISTS dvdrental;  
 --
 -- Name: dvdrental; Type: DATABASE; Schema: -; Owner: postgres
 --
 
-CREATE DATABASE dvdrental WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'English_United States.1252' LC_CTYPE = 'English_United States.1252';
+CREATE DATABASE dvdrental WITH TEMPLATE = template0 ENCODING = 'UTF8';
 
 
 ALTER DATABASE dvdrental OWNER TO postgres;
