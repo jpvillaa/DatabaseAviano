@@ -131,7 +131,7 @@ ALTER TABLE ONLY public.adresses
 -- Name: category category_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.category
+ALTER TABLE ONLY public.categories
     ADD CONSTRAINT category_pkey PRIMARY KEY (category_id);
 
 
