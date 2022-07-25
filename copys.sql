@@ -7,9 +7,9 @@
 -- Data for Name: address; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-\COPY public.addresses (address_id, address, address2, district, city_id, postal_code, phone, last_update) FROM stdin;
+\COPY public.adresses (address_id, address, address2, district, city_id, postal_code, phone, last_update) FROM stdin;
 \.
-\COPY public.addresses (address_id, address, address2, district, city_id, postal_code, phone, last_update) FROM '/var/www/html/scripts/DatabaseAviano/3065.dat';
+\COPY public.adresses (address_id, address, address2, district, city_id, postal_code, phone, last_update) FROM '/var/www/html/scripts/DatabaseAviano/3065.dat';
 
 --
 -- Data for Name: category; Type: TABLE DATA; Schema: public; Owner: postgres
