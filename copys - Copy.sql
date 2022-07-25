@@ -36,20 +36,20 @@
 \COPY public.countries (country_id, country, last_update) FROM '/var/www/html/scripts/DatabaseAviano/3069.dat';
 
 --
--- Data for Name: customer; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: costumer; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-\COPY public.customers (customer_id, store_id, first_name, last_name, email, address_id, activebool, create_date, last_update, active) FROM stdin;
+\COPY public.costumers (costumer_id, store_id, first_name, last_name, email, address_id, activebool, create_date, last_update, active) FROM stdin;
 \.
-\COPY public.customers (customer_id, store_id, first_name, last_name, email, address_id, activebool, create_date, last_update, active) FROM '/var/www/html/scripts/DatabaseAviano/3055.dat';
+\COPY public.costumers (costumer_id, store_id, first_name, last_name, email, address_id, activebool, create_date, last_update, active) FROM '/var/www/html/scripts/DatabaseAviano/3055.dat';
 
 --
 -- Data for Name: film; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-\COPY public.films (film_id, title, description, release_year, language_id, rental_duration, rental_rate, length, replacement_cost, rating, last_update, special_features, fulltext) FROM stdin;
+\COPY public.films (film_id, title, description, release_year, lenguage_id, rental_duration, rental_rate, length, replacement_cost, rating, last_update, special_features, fulltext) FROM stdin;
 \.
-\COPY public.films (film_id, title, description, release_year, language_id, rental_duration, rental_rate, length, replacement_cost, rating, last_update, special_features, fulltext) FROM '/var/www/html/scripts/DatabaseAviano/3061.dat';
+\COPY public.films (film_id, title, description, release_year, lenguage_id, rental_duration, rental_rate, length, replacement_cost, rating, last_update, special_features, fulltext) FROM '/var/www/html/scripts/DatabaseAviano/3061.dat';
 
 --
 -- Data for Name: film_actor; Type: TABLE DATA; Schema: public; Owner: postgres
@@ -76,28 +76,28 @@
 \COPY public.inventories (inventory_id, film_id, store_id, last_update) FROM '/var/www/html/scripts/DatabaseAviano/3071.dat';
 
 --
--- Data for Name: language; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: lenguage; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-\COPY public.languages (language_id, name, last_update) FROM stdin;
+\COPY public.lenguages (lenguage_id, name, last_update) FROM stdin;
 \.
-\COPY public.languages (language_id, name, last_update) FROM '/var/www/html/scripts/DatabaseAviano/3073.dat';
+\COPY public.lenguages (lenguage_id, name, last_update) FROM '/var/www/html/scripts/DatabaseAviano/3073.dat';
 
 --
 -- Data for Name: payment; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-\COPY public.payments (payment_id, customer_id, staff_id, rental_id, amount, payment_date) FROM stdin;
+\COPY public.payments (payment_id, costumer_id, staff_id, rental_id, amount, payment_date) FROM stdin;
 \.
-\COPY public.payments (payment_id, customer_id, staff_id, rental_id, amount, payment_date) FROM '/var/www/html/scripts/DatabaseAviano/3075.dat';
+\COPY public.payments (payment_id, costumer_id, staff_id, rental_id, amount, payment_date) FROM '/var/www/html/scripts/DatabaseAviano/3075.dat';
 
 --
 -- Data for Name: rental; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-\COPY public.rentals (rental_id, rental_date, inventory_id, customer_id, return_date, staff_id, last_update) FROM stdin;
+\COPY public.rentals (rental_id, rental_date, inventory_id, costumer_id, return_date, staff_id, last_update) FROM stdin;
 \.
-\COPY public.rentals (rental_id, rental_date, inventory_id, customer_id, return_date, staff_id, last_update) FROM '/var/www/html/scripts/DatabaseAviano/3077.dat';
+\COPY public.rentals (rental_id, rental_date, inventory_id, costumer_id, return_date, staff_id, last_update) FROM '/var/www/html/scripts/DatabaseAviano/3077.dat';
 
 --
 -- Data for Name: staff; Type: TABLE DATA; Schema: public; Owner: postgres
@@ -152,11 +152,11 @@ ALTER TABLE ONLY public.countries
 
 
 --
--- Name: customer customer_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: costumer costumer_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.customers
-    ADD CONSTRAINT customer_pkey PRIMARY KEY (customer_id);
+ALTER TABLE ONLY public.costumers
+    ADD CONSTRAINT costumer_pkey PRIMARY KEY (costumer_id);
 
 
 --
@@ -192,11 +192,11 @@ ALTER TABLE ONLY public.inventories
 
 
 --
--- Name: language language_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: lenguage lenguage_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.languages
-    ADD CONSTRAINT language_pkey PRIMARY KEY (language_id);
+ALTER TABLE ONLY public.lenguages
+    ADD CONSTRAINT lenguage_pkey PRIMARY KEY (lenguage_id);
 
 
 --
@@ -249,7 +249,7 @@ CREATE INDEX idx_actor_last_name ON public.actors USING btree (last_name);
 -- Name: idx_fk_address_id; Type: INDEX; Schema: public; Owner: postgres
 --
 
-CREATE INDEX idx_fk_address_id ON public.customers USING btree (address_id);
+CREATE INDEX idx_fk_address_id ON public.costumers USING btree (address_id);
 
 
 --
@@ -267,10 +267,10 @@ CREATE INDEX idx_fk_country_id ON public.cities USING btree (country_id);
 
 
 --
--- Name: idx_fk_customer_id; Type: INDEX; Schema: public; Owner: postgres
+-- Name: idx_fk_costumer_id; Type: INDEX; Schema: public; Owner: postgres
 --
 
-CREATE INDEX idx_fk_customer_id ON public.payments USING btree (customer_id);
+CREATE INDEX idx_fk_costumer_id ON public.payments USING btree (costumer_id);
 
 
 --
@@ -288,10 +288,10 @@ CREATE INDEX idx_fk_inventory_id ON public.rentals USING btree (inventory_id);
 
 
 --
--- Name: idx_fk_language_id; Type: INDEX; Schema: public; Owner: postgres
+-- Name: idx_fk_lenguage_id; Type: INDEX; Schema: public; Owner: postgres
 --
 
-CREATE INDEX idx_fk_language_id ON public.films USING btree (language_id);
+CREATE INDEX idx_fk_lenguage_id ON public.films USING btree (lenguage_id);
 
 
 --
@@ -312,14 +312,14 @@ CREATE INDEX idx_fk_staff_id ON public.payments USING btree (staff_id);
 -- Name: idx_fk_store_id; Type: INDEX; Schema: public; Owner: postgres
 --
 
-CREATE INDEX idx_fk_store_id ON public.customers USING btree (store_id);
+CREATE INDEX idx_fk_store_id ON public.costumers USING btree (store_id);
 
 
 --
 -- Name: idx_last_name; Type: INDEX; Schema: public; Owner: postgres
 --
 
-CREATE INDEX idx_last_name ON public.customers USING btree (last_name);
+CREATE INDEX idx_last_name ON public.costumers USING btree (last_name);
 
 
 --
@@ -344,10 +344,10 @@ CREATE UNIQUE INDEX idx_unq_manager_staff_id ON public.stores USING btree (manag
 
 
 --
--- Name: idx_unq_rental_rental_date_inventory_id_customer_id; Type: INDEX; Schema: public; Owner: postgres
+-- Name: idx_unq_rental_rental_date_inventory_id_costumer_id; Type: INDEX; Schema: public; Owner: postgres
 --
 
-CREATE UNIQUE INDEX idx_unq_rental_rental_date_inventory_id_customer_id ON public.rentals USING btree (rental_date, inventory_id, customer_id);
+CREATE UNIQUE INDEX idx_unq_rental_rental_date_inventory_id_costumer_id ON public.rentals USING btree (rental_date, inventory_id, costumer_id);
 
 
 --
@@ -393,10 +393,10 @@ CREATE TRIGGER last_updated BEFORE UPDATE ON public.countries FOR EACH ROW EXECU
 
 
 --
--- Name: customer last_updated; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: costumer last_updated; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
-CREATE TRIGGER last_updated BEFORE UPDATE ON public.customers FOR EACH ROW EXECUTE PROCEDURE public.last_updated();
+CREATE TRIGGER last_updated BEFORE UPDATE ON public.costumers FOR EACH ROW EXECUTE PROCEDURE public.last_updated();
 
 
 --
@@ -428,10 +428,10 @@ CREATE TRIGGER last_updated BEFORE UPDATE ON public.inventories FOR EACH ROW EXE
 
 
 --
--- Name: language last_updated; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: lenguage last_updated; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
-CREATE TRIGGER last_updated BEFORE UPDATE ON public.languages FOR EACH ROW EXECUTE PROCEDURE public.last_updated();
+CREATE TRIGGER last_updated BEFORE UPDATE ON public.lenguages FOR EACH ROW EXECUTE PROCEDURE public.last_updated();
 
 
 --
@@ -456,11 +456,11 @@ CREATE TRIGGER last_updated BEFORE UPDATE ON public.stores FOR EACH ROW EXECUTE 
 
 
 --
--- Name: customer customer_address_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: costumer costumer_address_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.customers
-    ADD CONSTRAINT customer_address_id_fkey FOREIGN KEY (address_id) REFERENCES public.adresses(address_id) ON UPDATE CASCADE ON DELETE RESTRICT;
+ALTER TABLE ONLY public.costumers
+    ADD CONSTRAINT costumer_address_id_fkey FOREIGN KEY (address_id) REFERENCES public.adresses(address_id) ON UPDATE CASCADE ON DELETE RESTRICT;
 
 
 --
@@ -496,11 +496,11 @@ ALTER TABLE ONLY public.film_categories
 
 
 --
--- Name: film film_language_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: film film_lenguage_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.films
-    ADD CONSTRAINT film_language_id_fkey FOREIGN KEY (language_id) REFERENCES public.languages(language_id) ON UPDATE CASCADE ON DELETE RESTRICT;
+    ADD CONSTRAINT film_lenguage_id_fkey FOREIGN KEY (lenguage_id) REFERENCES public.lenguages(lenguage_id) ON UPDATE CASCADE ON DELETE RESTRICT;
 
 
 --
@@ -528,11 +528,11 @@ ALTER TABLE ONLY public.inventories
 
 
 --
--- Name: payment payment_customer_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: payment payment_costumer_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.payments
-    ADD CONSTRAINT payment_customer_id_fkey FOREIGN KEY (customer_id) REFERENCES public.customers(customer_id) ON UPDATE CASCADE ON DELETE RESTRICT;
+    ADD CONSTRAINT payment_costumer_id_fkey FOREIGN KEY (costumer_id) REFERENCES public.costumers(costumer_id) ON UPDATE CASCADE ON DELETE RESTRICT;
 
 
 --
@@ -552,11 +552,11 @@ ALTER TABLE ONLY public.payments
 
 
 --
--- Name: rental rental_customer_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: rental rental_costumer_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.rentals
-    ADD CONSTRAINT rental_customer_id_fkey FOREIGN KEY (customer_id) REFERENCES public.customers(customer_id) ON UPDATE CASCADE ON DELETE RESTRICT;
+    ADD CONSTRAINT rental_costumer_id_fkey FOREIGN KEY (costumer_id) REFERENCES public.costumers(costumer_id) ON UPDATE CASCADE ON DELETE RESTRICT;
 
 
 --
