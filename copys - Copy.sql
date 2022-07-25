@@ -386,7 +386,7 @@ ALTER TABLE ONLY public.film_actors
 --
 
 ALTER TABLE ONLY public.film_categories
-    ADD CONSTRAINT film_category_category_id_fkey FOREIGN KEY (category_id) REFERENCES public.category(category_id) ON UPDATE CASCADE ON DELETE RESTRICT;
+    ADD CONSTRAINT film_category_category_id_fkey FOREIGN KEY (category_id) REFERENCES public.categories(category_id) ON UPDATE CASCADE ON DELETE RESTRICT;
 
 
 --
